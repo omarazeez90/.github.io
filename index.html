@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Mohammed - AI Researcher & Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #1abc9c;
+            --light-color: #f8f9fa;
+            --dark-color: #333;
+            --text-color: #555;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-info a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .contact-info a:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem 0;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-company {
+            font-style: italic;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Publications */
+        .publications-list {
+            list-style: none;
+        }
+        
+        .publication-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-info-card h3 {
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+        
+        .contact-info-card p {
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .skills-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="profile.jpg" alt="Omar Mohammed" class="profile-pic">
+                <h1>Omar Mohammed</h1>
+                <p>AI Researcher | Sensor Reliability Specialist</p>
+                <div class="contact-info">
+                    <a href="mailto:eng.omar90@yahoo.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com/in/omar-mohammed" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/omarmohammed" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://scholar.google.com/citations?user=your-profile" target="_blank"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a dedicated researcher with expertise in artificial intelligence, machine learning, and sensor reliability. My work focuses on improving the reliability of AI systems through advanced research and interdisciplinary collaboration.</p>
+                    <p>With a strong academic background and practical experience in both research and industry, I am passionate about mentoring students and contributing to the advancement of technology through academic research and practical applications.</p>
+                    <a href="CV-Omar-Mohammed.pdf" class="download-btn" download>Download CV</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2022 – Present</div>
+                    <div class="timeline-title">Researcher</div>
+                    <div class="timeline-company">University of Siegen</div>
+                    <ul>
+                        <li>Conduct advanced research on AI-relevant systems to improve the reliability of sensors</li>
+                        <li>Collaborate with interdisciplinary teams in the development and application of AI algorithms</li>
+                        <li>Supervise and mentor students in research projects and lab exercises, focusing on Artificial Intelligence and Machine Learning</li>
+                        <li>Co-author several peer-reviewed publications presented at international conferences</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">February 2014 – April 2017</div>
+                    <div class="timeline-title">Telecom Engineer</div>
+                    <div class="timeline-company">Darin Group - Darin Telecom Services</div>
+                    <ul>
+                        <li>Led the installation and upgrade of 2G and 3G network infrastructures, improving service reliability</li>
+                        <li>Conducted telecom microwave upgrades, reducing operational costs through optimized resource allocation</li>
+                        <li>Designed and implemented In-Building Solutions (IBS) to improve network coverage in challenging environments</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">October 2019 – October 2022</div>
+                    <div class="timeline-title">M.Sc. in Natural Sciences and Technology</div>
+                    <div class="timeline-company">University of Siegen</div>
+                    <p><strong>Thesis:</strong> Faults and fault injection in camera-based systems for assisted driving</p>
+                    <p><strong>Project Group:</strong> Visual Computing: Seeing Through Waves</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">October 2009 – October 2013</div>
+                    <div class="timeline-title">B.Sc. in Computer Engineering</div>
+                    <div class="timeline-company">University of Mosul</div>
+                    <p><strong>Thesis:</strong> Multi-core Multi-processing and Multi-computer Network system using MATLAB</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Scientific Publications</h2>
+            <ul class="publications-list">
+                <li class="publication-item">
+                    <div class="publication-title">Multilevel Artificial Intelligence Classification of Faulty Image Data for Enhancing Sensor Reliability</div>
+                    <p>Proceedings of the 33th European Safety and Reliability Conference (ESREL 2023), Southampton, UK, September 2023</p>
+                </li>
+                <li class="publication-item">
+                    <div class="publication-title">Performance Index Modeling from Fault Injection Analysis for an Autonomous Lane-Keeping System</div>
+                    <p>Proceedings of the 33th European Safety and Reliability Conference (ESREL 2023), Southampton, UK, September 2023</p>
+                </li>
+                <li class="publication-item">
+                    <div class="publication-title">Health index modeling for trustable electronic sensor systems in an autonomous application</div>
+                    <p>2023 Smart Systems Integration Conference and Exhibition (SSI), IEEE, Bruges, Belgium, March 2023</p>
+                </li>
+                <li class="publication-item">
+                    <div class="publication-title">Impact of Image Sensor Input Faults on Pruned Neural Networks for Object Detection</div>
+                    <p>2024 IEEE International Symposium on Defect and Fault Tolerance in VLSI and Nanotechnology Systems (DFT), Didcot, UK, 2024</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2>Skills and Qualifications</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Language Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Arabic (Native)</span>
+                        <span class="skill-tag">German (C1)</span>
+                        <span class="skill-tag">English (C1)</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">VHDL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">CNN</span>
+                        <span class="skill-tag">RNN</span>
+                        <span class="skill-tag">GANs</span>
+                        <span class="skill-tag">LLMs</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">Scikit-image</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">ROS</span>
+                        <span class="skill-tag">CARLA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info-card">
+                        <h3>Address</h3>
+                        <p>Urbacher Weg 43, 51149 Cologne, Germany</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-info-card">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+491639244496">+49 163 9244496</a></p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info-card">
+                        <h3>Email</h3>
+                        <p><a href="mailto:eng.omar90@yahoo.com">eng.omar90@yahoo.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="contact-info-card">
+                        <h3>LinkedIn</h3>
+                        <p><a href="https://linkedin.com/in/omar-mohammed" target="_blank">linkedin.com/in/omar-mohammed</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Omar Mohammed. All rights reserved.</p>
+                <p>Professional AI Researcher and Engineer</p>
+                <div class="social-links">
+                    <a href="mailto:eng.omar90@yahoo.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com/in/omar-mohammed" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/omarmohammed" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://scholar.google.com/citations?user=your-profile" target="_blank"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
